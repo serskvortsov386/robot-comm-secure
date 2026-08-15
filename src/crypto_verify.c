@@ -1,3 +1,4 @@
+#include "sdkconfig.h"
 #include "robot_secure_comm.h"
 #include "esp_rom_crc32.h"
 #include "mbedtls/md.h"
