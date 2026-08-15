@@ -7,7 +7,12 @@
 static const char* TAG = "ROBOT_MAIN";
 
 // Секретный ключ реестра, выданный при сертификации робота (32 байта)
-static const uint8_t REGISTRY_SECRET_KEY[32] = "ROBOT_REGISTRY_TRUST_TOKEN_2026";
+// Вместо старого вызова:
+// static const uint8_t REGISTRY_SECRET_KEY[32] = "ROBOT_REGISTRY_TRUST_TOKEN_2026";
+
+// Напишите новый вызов:
+robot_packet_sign(&my_sos_packet, (const uint8_t*)CONFIG_ROBOT_MASTER_KEY, strlen(CONFIG_ROBOT_MASTER_KEY));
+
 
 void app_main(void) {
     // 1. Инициализация памяти NVS (требуется для работы Bluetooth)
