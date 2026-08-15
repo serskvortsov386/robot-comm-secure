@@ -1,0 +1,27 @@
+menu "ROBOT-COMM-SECURE Configuration"
+
+    config ROBOT_MASTER_KEY
+        string "Master HMAC Key for Robot Registry"
+        default "CHANGE_THIS_DEFAULT_KEY_12345"
+        help
+            This is the master HMAC-SHA256 key used to sign and verify robot 
+            identity packets. It MUST be changed from the default value.
+            
+            IMPORTANT: In a production system, this key should be stored 
+            securely (e.g., in an encrypted NVS partition or eFuse). 
+            This config is for development and testing.
+
+    config ROBOT_KEY_STORAGE_TYPE
+        int "Key Storage Type"
+        range 0 2
+        default 0
+        help
+            Select how the master key is stored:
+            0 - In application config (Kconfig) - FOR TESTING ONLY
+            1 - In encrypted NVS partition
+            2 - In eFuse (HMAC_UP peripheral)
+            
+            Using eFuse (option 2) provides the highest security as the 
+            key is never exposed in flash or memory.
+
+endmenu
