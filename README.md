@@ -28,7 +28,7 @@
 
 ### Клонирование и сборка
 ```bash
-git clone https://github.com
+git clone https://github.com/serskvortsov386/robot-comm-secure.git
 cd robot-comm-secure
 
 # Конфигурация под вашу архитектуру
